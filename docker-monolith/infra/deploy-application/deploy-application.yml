@@ -1,0 +1,13 @@
+- hosts: reddit_container
+  become: true
+
+  vars:
+    - ansible_python_interpreter: '/usr/bin/python3'
+
+  tasks:
+    - name: Create otus-reddit app container
+      docker_container:
+        name: reddit
+        image: "evgeniyberendyaev/otus-reddit:1.0"
+        ports:
+          - "9292:9292"
