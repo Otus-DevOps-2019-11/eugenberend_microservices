@@ -2,7 +2,8 @@
 docker network create reddit
 
 docker run -d --network=reddit \
---network-alias=post_database --network-alias=comment_database mongo:latest
+--network-alias=post_database --network-alias=comment_database \
+-v reddit_db:/data/db mongo:latest
 
 docker run \
 -e POST_DATABASE_HOST='post_database' \
