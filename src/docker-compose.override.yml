@@ -1,12 +1,12 @@
-version: '3.7'
+version: '3.3'
 services:
   ui:
     volumes:
-      - './ui:/app'
+      - './ui/:/app/'
     command: --debug -w 2
   comment:
     volumes:
-      - './comment:/app'
+      - './comment/:/app/'
   post:
     volumes:
-      - './post:/app'
+      - './post/:/app/'
