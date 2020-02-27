@@ -13,3 +13,12 @@ nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
 ```
 
 - [X] ```docker-compose``` assigns a prefix for resources. If it isn't explicitly specified using ```-p``` arg, it defaults to the directory name
+
+Done:
+
+- [X] Parametrized docker-compose created
+- [X] docker-compose.override.yml created
+
+Run:
+
+- [X] docker-compose up -d
