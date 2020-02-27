@@ -2,13 +2,12 @@
 
 eugenberend microservices repository
 
-Done:
+Answers:
 
-- [X] App divided to microservices
-- [X] Using docker volume for backend database
-- [X] Optimized tiny images
+- [X] ```ifconfig``` outputs from the docker machine and from the first docker container are identical
+- [X] It is not possible to run multiple nginx container as they listening the same http port. Thus, all nginx containers except the first one exit with error code 1:
 
-How to run:
-
-- [X] Run src/build-docker-images.sh to build optimized images
-- [X] Run src/create-docker-containers.sh to run containers
+```log
+2020/02/27 07:18:06 [emerg] 1#1: bind() to 0.0.0.0:80 failed (98: Address already in use)
+nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+```
