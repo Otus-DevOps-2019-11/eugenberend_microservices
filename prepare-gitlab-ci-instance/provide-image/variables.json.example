@@ -1,0 +1,11 @@
+{
+      "project_id": "docker-XXXXXX",
+      "source_image_family": "ubuntu-1604-lts",
+      "machine_type": "f1-micro",
+      "image_description":"Docker host image",
+      "disk_size":"10",
+      "disk_type":"pd-standard",
+      "tags":"docker",
+      "zone":"europe-north1-a",
+      "name": "docker-host"
+}
