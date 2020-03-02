@@ -1,0 +1,6 @@
+- hosts: gitlab_ci
+  remote_user: appuser
+  vars_files:
+    - vars/main.yml
+  roles:
+    - { role: riemers.gitlab-runner }
