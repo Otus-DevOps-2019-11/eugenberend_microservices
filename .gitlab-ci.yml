@@ -19,6 +19,7 @@ build_job:
   services:
     - docker:19.03.1-dind
   script:
+    - docker info
     - ../gitlab-ci/scripts/build-docker-image.sh
 
 test_unit_job:
