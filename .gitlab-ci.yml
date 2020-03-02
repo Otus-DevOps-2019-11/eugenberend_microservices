@@ -1,5 +1,3 @@
-image: ruby:2.4.2
-
 stages:
   - build
   - test
@@ -8,22 +6,26 @@ stages:
   - production
 
 variables:
+  DOCKER_DRIVER: overlay2
   DATABASE_URL: "mongodb://mongo/user_posts"
 
 before_script:
   - cd reddit
-  - bundle install
 
 build_job:
   stage: build
+  services:
+    - docker:19.03.1-dind
   script:
-    - echo 'Building'
+    - ../gitlab-ci/scripts/build-docker-image.sh
 
 test_unit_job:
+  image: ruby:2.4.2
   stage: test
   services:
     - mongo:latest
   script:
+    - bundle install
     - ruby simpletest.rb
 
 test_integration_job:
@@ -40,8 +42,12 @@ deploy_dev_job:
     url: http://dev.example.com
 
 branch review:
+  services:
+    - docker:19.03.1-dind
   stage: review
-  script: echo "Deploy to $CI_ENVIRONMENT_SLUG"
+  script:
+    - echo $CI_ENVIRONMENT_SLUG
+    - docker run -d --hostname reddit --name gitlab-reddit-$CI_COMMIT_REF_NAME-$CI_PIPELINE_IID --rm -p 9292:9292 evgeniyberendyaev/gitlab-reddit:$CI_PIPELINE_IID
   environment:
     name: branch/$CI_COMMIT_REF_NAME
     url: http://$CI_ENVIRONMENT_SLUG.example.com
