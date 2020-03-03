@@ -4,7 +4,7 @@ eugenberend microservices repository
 
 Done:
 
-- [X] Configured notifications to Slack channel https://devops-team-otus.slack.com/archives/CRH4T9QG3
+- [X] Configured notifications to Slack channel <https://devops-team-otus.slack.com/archives/CRH4T9QG3>
 - [X] Automated gitlab runner provision with Ansible
 - [X] Integrated container build and deployment into the pipeline
 
