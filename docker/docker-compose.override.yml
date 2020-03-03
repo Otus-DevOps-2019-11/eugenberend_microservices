@@ -10,6 +10,8 @@ services:
   post:
     volumes:
       - post:/app
+  mongo-exporter:
+    command: --mongodb.uri mongodb://post_db:27017
 volumes:
   ui:
   comment:
