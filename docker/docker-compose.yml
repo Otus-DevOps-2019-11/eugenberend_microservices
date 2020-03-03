@@ -27,6 +27,7 @@ services:
       - ${FRONTEND_NW}
       - ${BACKEND_NW}
   prometheus:
+    build: ../monitoring/prometheus
     image: ${USERNAME}/prometheus
     ports:
       - "9090:9090"
@@ -57,6 +58,11 @@ services:
     image: ${USERNAME}/mongodb_exporter
     networks:
       - ${BACKEND_NW}
+  blackbox-exporter:
+    build: ../monitoring/blackbox_exporter
+    image: ${USERNAME}/blackbox_exporter
+    networks:
+      - ${FRONTEND_NW}
 
 volumes:
   prometheus_data:
