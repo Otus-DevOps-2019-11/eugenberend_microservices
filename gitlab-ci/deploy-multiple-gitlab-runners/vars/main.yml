@@ -1,0 +1,15 @@
+gitlab_runner_registration_token: 'NYxTpLwaw5iPdz7vz33g'
+gitlab_runner_coordinator_url: 'http://35.228.135.97/'
+gitlab_runner_runners:
+  - name: 'Example Docker GitLab Runner {{item}}'
+    executor: docker
+    docker_image: 'docker:19.03.1'
+    tags:
+      - docker
+      - linux
+      - ubuntu
+      - xenial
+    docker_volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/cache"
+    docker_privileged: true

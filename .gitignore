@@ -7,7 +7,6 @@
 .terraform/
 *.retry
 jdauphant.nginx
-# Vagrant & molecule
 .vagrant/
 *.log
 *.pyc
@@ -15,3 +14,4 @@ jdauphant.nginx
 .cache
 .pytest_cache
 inventory.gcp.yml
+.env

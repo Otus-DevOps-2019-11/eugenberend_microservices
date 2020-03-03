@@ -1,0 +1,17 @@
+plugin: gcp_compute
+zones:
+  - europe-north1-a
+projects:
+  - docker-XXXXXX
+service_account_file: ~/.gsutil/docker-XXXXXX-46c2f53a9aeb.json
+auth_kind: serviceaccount
+scopes:
+ - 'https://www.googleapis.com/auth/cloud-platform'
+ - 'https://www.googleapis.com/auth/compute.readonly'
+groups:
+  reddit_container: "'reddit-container' in name"
+hostnames:
+  - name
+compose:
+  ansible_host: networkInterfaces[0].accessConfigs[0].natIP
+  ansible_internal_ip: networkInterfaces[0].networkIP

@@ -1,0 +1,37 @@
+{
+    "variables": {
+       "project_id": "",
+       "source_image_family": "",
+       "machine_type": "f1-micro",
+       "image_description": "",
+       "disk_size": "10",
+       "disk_type": "pd-standard",
+       "tags": "",
+       "network": "default",
+       "zone": "europe-north1-a",
+       "name": "foo"
+    },
+    "builders": [
+       {
+          "type": "googlecompute",
+          "project_id": "{{user `project_id`}}",
+          "image_name": "{{user `name`}}-{{timestamp}}",
+          "image_family": "{{user `name`}}",
+          "source_image_family": "{{user `source_image_family`}}",
+          "ssh_username": "appuser",
+          "machine_type": "{{user `machine_type`}}",
+          "image_description": "{{user `image_description`}}",
+          "disk_size": "{{user `disk_size`}}",
+          "disk_type": "{{user `disk_type`}}",
+          "tags": "{{user `tags`}}",
+          "network": "{{user `network`}}",
+          "zone": "{{user `zone`}}"
+       }
+    ],
+    "provisioners": [
+		{
+		"type": "ansible",
+		"playbook_file": "{{ pwd }}/install-docker/install-docker.yml"
+		}
+	]
+ }
