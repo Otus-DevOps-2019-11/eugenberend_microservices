@@ -3,13 +3,15 @@ services:
   ui:
     volumes:
       - ui:/app
-    command: --debug -w 2
+    command: puma --debug -w 2
   comment:
     volumes:
       - comment:/app
   post:
     volumes:
       - post:/app
+  mongo-exporter:
+    command: --mongodb.uri mongodb://post_db:27017
 volumes:
   ui:
   comment:
