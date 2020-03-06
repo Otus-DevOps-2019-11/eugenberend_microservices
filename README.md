@@ -4,12 +4,13 @@ eugenberend microservices repository
 
 Done:
 
-- [X] Configured blackbox_exporter and mongodb_exporter for Prometheus
-- [X] Written Makefile
-- [X] Integrated container build and deployment into the pipeline
+- [X] Configured alertmanager for Prometheus, added Slack alerts
+- [X] Added Grafana dashboards
+- [X] Updated Makefile
 
 How to run:
 
 - Run `make`
 - Then, `cd docker && docker-compose up -d`
-- Check <http://IP:9090> for Prometheus web page
+- Import Grafana dashboards from `monitoring/grafana/dashboards` directory
+- Shut down any service. I'll receive an alert :)
