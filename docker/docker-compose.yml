@@ -41,6 +41,7 @@ services:
 
   comment:
     image: ${USERNAME}/comment
+    container_name: comment
     environment:
       - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
     networks:
