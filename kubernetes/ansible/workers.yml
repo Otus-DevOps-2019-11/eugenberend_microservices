@@ -1,0 +1,8 @@
+- hosts: workers
+  gather_facts: no
+  tasks:
+    - name: Bootstrap workers
+      script: ./scripts/bootstrapping-kubernetes-workers.sh
+      register: Bootstrap
+    - debug:
+        msg: "This is the result: {{ Bootstrap }}"
