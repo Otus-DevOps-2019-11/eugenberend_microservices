@@ -1,0 +1,6 @@
+- hosts: workers
+  tasks:
+    - shell: hostname
+      register: hostname
+    - debug:
+        msg: "This is hostname: {{ hostname.stdout_lines[0] }}"

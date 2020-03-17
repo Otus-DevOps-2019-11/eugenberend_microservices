@@ -1,0 +1,8 @@
+- hosts: controllers
+  gather_facts: no
+  tasks:
+    - name: Bootstrap controllers
+      script: ./scripts/bootstrapping-kubernetes-controllers.sh
+      register: Bootstrap
+    - debug:
+        msg: "This is the result: {{ Bootstrap }}"

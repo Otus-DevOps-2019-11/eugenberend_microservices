@@ -1,0 +1,8 @@
+- hosts: main_controller
+  gather_facts: no
+  tasks:
+    - name: Configure RBAC
+      script: ./scripts/configure-rbac.sh
+      register: RBAC
+    - debug:
+        msg: "This is the result: {{ RBAC }}"
