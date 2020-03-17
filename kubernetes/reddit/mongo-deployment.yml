@@ -20,8 +20,8 @@ spec:
       labels:
         app: reddit
         component: mongo
-        post-db: "true"
         comment-db: "true"
+        post-db: "true"
     spec:
       containers:
       - image: mongo:3.2
