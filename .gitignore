@@ -15,3 +15,4 @@ jdauphant.nginx
 .pytest_cache
 inventory.gcp.yml
 .env
+kubernetes/Gitlab_ci
